@@ -1,0 +1,6 @@
+{
+    "parent": "archexpsquared:item/silver_bow",
+    "textures": {
+        "layer0": "archexpsquared:item/silver_bow_pulling_0"
+    }
+}

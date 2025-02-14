@@ -1,0 +1,6 @@
+{
+    "parent": "archexpsquared:item/lead_bow",
+    "textures": {
+        "layer0": "archexpsquared:item/lead_bow_pulling_2"
+    }
+}
