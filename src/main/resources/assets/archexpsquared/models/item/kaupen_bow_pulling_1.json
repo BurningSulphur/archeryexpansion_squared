@@ -1,0 +1,6 @@
+{
+    "parent": "archexpsquared:item/kaupen_bow",
+    "textures": {
+        "layer0": "archexpsquared:item/kaupen_bow_pulling_1"
+    }
+}

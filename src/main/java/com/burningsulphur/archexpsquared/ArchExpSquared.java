@@ -3,6 +3,9 @@ package  com.burningsulphur.archexpsquared;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -39,16 +42,49 @@ public class ArchExpSquared
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
 
 
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
-    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(1).saturationMod(2f).build())));
+    //bow items
+    public static final RegistryObject<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> LEAD_BOW = ITEMS.register("lead_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> SILVER_BOW = ITEMS.register("silver_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+
+    // adding the propeties to the bow
+
+    public class ModItemProperties {
+        public static void addCustomItemProperties() { // put bows here
+            makeBow(ArchExpSquared.KAUPEN_BOW.get());
+            makeBow(ArchExpSquared.LEAD_BOW.get());
+            makeBow(ArchExpSquared.SILVER_BOW.get());
+        }
+
+        //fancy bow code:
+        private static void makeBow(Item item) {
+            ItemProperties.register(item, new ResourceLocation("pull"), (p_174635_, p_174636_, p_174637_, p_174638_) -> {
+                if (p_174637_ == null) {
+                    return 0.0F;
+                } else {
+                    return p_174637_.getUseItem() != p_174635_ ? 0.0F : (float)(p_174635_.getUseDuration() -
+                            p_174637_.getUseItemRemainingTicks()) / 20.0F;
+                }
+            });
+
+            ItemProperties.register(item, new ResourceLocation("pulling"), (p_174630_, p_174631_, p_174632_, p_174633_) -> {
+                return p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F;
+            });
+        }
+    }
+
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> KAUPEN_BOW.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(KAUPEN_BOW.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(LEAD_BOW.get());
+                output.accept(SILVER_BOW.get());
             }).build());
 
     public ArchExpSquared(FMLJavaModLoadingContext context)
@@ -96,6 +132,7 @@ public class ArchExpSquared
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            ModItemProperties.addCustomItemProperties();
         }
     }
 }
