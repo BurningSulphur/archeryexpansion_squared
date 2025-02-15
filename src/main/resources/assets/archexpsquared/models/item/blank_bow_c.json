@@ -71,28 +71,28 @@
         }
     },
   "textures": {
-    "layer0": "archexpsquared:item/blank_bow_b"
+    "layer0": "archexpsquared:item/blank_bow_c"
   },
     "overrides": [
       {
         "predicate": {
           "minecraft:pulling": 1
         },
-        "model": "archexpsquared:item/blank_bow_b_pulling_0"
+        "model": "archexpsquared:item/blank_bow_c_pulling_0"
       },
       {
         "predicate": {
           "minecraft:pulling": 1,
           "minecraft:pull": 0.65
         },
-        "model": "archexpsquared:item/blank_bow_b_pulling_1"
+        "model": "archexpsquared:item/blank_bow_c_pulling_1"
       },
       {
         "predicate": {
           "minecraft:pulling": 1,
           "minecraft:pull": 0.9
         },
-        "model": "archexpsquared:item/blank_bow_b_pulling_2"
+        "model": "archexpsquared:item/blank_bow_c_pulling_2"
       }
     ]
 }

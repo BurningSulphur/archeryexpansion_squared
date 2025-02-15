@@ -1,6 +1,6 @@
 {
-  "parent": "archexpsquared:item/blank_bow_b",
+  "parent": "archexpsquared:item/blank_bow_c",
   "textures": {
-    "layer0": "archexpsquared:item/blank_bow_b_pulling_1"
+    "layer0": "archexpsquared:item/blank_bow_c_pulling_1"
   }
 }
