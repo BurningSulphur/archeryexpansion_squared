@@ -41,8 +41,7 @@ public class ArchExpSquared
 
 
     //bow items
-    public static final RegistryObject<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+
     public static final RegistryObject<Item> LEAD_BOW = ITEMS.register("lead_bow",
             () -> new BowItem(new Item.Properties().durability(500)));
     public static final RegistryObject<Item> SILVER_BOW = ITEMS.register("silver_bow",
@@ -65,7 +64,6 @@ public class ArchExpSquared
 
     public class ModItemProperties {
         public static void addCustomItemProperties() { // put bows here
-            makeBow(ArchExpSquared.KAUPEN_BOW.get());
             makeBow(ArchExpSquared.LEAD_BOW.get());
             makeBow(ArchExpSquared.SILVER_BOW.get());
             makeBow(ArchExpSquared.ELECTRUM_BOW.get());
@@ -97,7 +95,7 @@ public class ArchExpSquared
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> KAUPEN_BOW.get().getDefaultInstance())
+            .icon(() -> SILVER_BOW.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(LEAD_BOW.get());
                 output.accept(SILVER_BOW.get());
