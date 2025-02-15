@@ -1,0 +1,33 @@
+{
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "caverns_and_chasms"
+        },
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:ingots/necromium"
+          }
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "caverns_and_chasms:necromium_ingot"
+  },
+  "base": {
+    "item": "archeryexp:diamond_bow"
+  },
+  "result": {
+    "item": "archexpsquared:necromium_bow"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

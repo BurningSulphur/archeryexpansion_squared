@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "cavesanddepths"
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cavesanddepths:rose_gold_ingot"
+  },
+  "base": {
+    "item": "archeryexp:gold_bow"
+  },
+  "result": {
+    "item": "archexpsquared:rose_gold_bow"
+  },
+  "template": {
+    "item": "cavesanddepths:rosegoldupgradesmithingtemplate"
+  }
+}

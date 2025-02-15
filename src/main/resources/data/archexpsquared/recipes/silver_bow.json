@@ -1,0 +1,37 @@
+{
+  "conditions": [
+    {
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:tag_empty",
+            "tag": "forge:ingots/silver"
+          }
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gws",
+    "w s",
+    "gws"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:stick"
+    },
+    "s": {
+      "item": "minecraft:string"
+    },
+    "g": {
+      "tag": "forge:ingots/silver"
+    }
+  },
+  "result": {
+    "item": "archexpsquared:silver_bow",
+    "count": 1
+  }
+}

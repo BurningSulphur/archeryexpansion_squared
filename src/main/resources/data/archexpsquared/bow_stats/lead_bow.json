@@ -10,7 +10,13 @@
   "on_fire_effects": [
     {
       "effect": "archeryexp:quickdraw",
-      "lvl": 1,
+      "lvl": 0,
+      "length": 20,
+      "particles": false
+    },
+    {
+      "effect": "oreganized:stunning",
+      "lvl": 0,
       "length": 20,
       "particles": false
     }
