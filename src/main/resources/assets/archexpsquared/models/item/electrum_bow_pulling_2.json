@@ -1,0 +1,6 @@
+{
+  "parent": "archexpsquared:item/electrum_bow",
+  "textures": {
+    "layer0": "archexpsquared:item/electrum_bow_pulling_2"
+  }
+}

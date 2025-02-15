@@ -1,0 +1,6 @@
+{
+  "parent": "archexpsquared:item/blank_bow_b",
+  "textures": {
+    "layer0": "archexpsquared:item/blank_bow_b_pulling_0"
+  }
+}

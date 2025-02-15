@@ -1,0 +1,6 @@
+{
+  "parent": "archexpsquared:item/necromium_bow",
+  "textures": {
+    "layer0": "archexpsquared:item/necromium_bow_pulling_0"
+  }
+}

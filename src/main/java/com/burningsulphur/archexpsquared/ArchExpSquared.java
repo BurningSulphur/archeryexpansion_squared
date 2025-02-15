@@ -2,7 +2,6 @@ package  com.burningsulphur.archexpsquared;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +16,6 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -49,6 +47,19 @@ public class ArchExpSquared
             () -> new BowItem(new Item.Properties().durability(500)));
     public static final RegistryObject<Item> SILVER_BOW = ITEMS.register("silver_bow",
             () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> ELECTRUM_BOW = ITEMS.register("electrum_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> NECROMIUM_BOW = ITEMS.register("necromium_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> ROSE_GOLD_BOW = ITEMS.register("rose_gold_bow",
+            () -> new BowItem(new Item.Properties().durability(500)));
+
+    public static final RegistryObject<Item> BLANK_BOW_A = ITEMS.register("blank_bow_a",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> BLANK_BOW_B = ITEMS.register("blank_bow_b",
+            () -> new BowItem(new Item.Properties().durability(500)));
+    public static final RegistryObject<Item> BLANK_BOW_C = ITEMS.register("blank_bow_c",
+            () -> new BowItem(new Item.Properties().durability(500)));
 
     // adding the propeties to the bow
 
@@ -57,6 +68,12 @@ public class ArchExpSquared
             makeBow(ArchExpSquared.KAUPEN_BOW.get());
             makeBow(ArchExpSquared.LEAD_BOW.get());
             makeBow(ArchExpSquared.SILVER_BOW.get());
+            makeBow(ArchExpSquared.ELECTRUM_BOW.get());
+            makeBow(ArchExpSquared.NECROMIUM_BOW.get());
+            makeBow(ArchExpSquared.ROSE_GOLD_BOW.get());
+            makeBow(ArchExpSquared.BLANK_BOW_A.get());
+            makeBow(ArchExpSquared.BLANK_BOW_B.get());
+            makeBow(ArchExpSquared.BLANK_BOW_C.get());
         }
 
         //fancy bow code:
@@ -82,9 +99,14 @@ public class ArchExpSquared
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> KAUPEN_BOW.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(KAUPEN_BOW.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(LEAD_BOW.get());
                 output.accept(SILVER_BOW.get());
+                output.accept(ELECTRUM_BOW.get());
+                output.accept(NECROMIUM_BOW.get());
+                output.accept(ROSE_GOLD_BOW.get());
+                output.accept(BLANK_BOW_A.get());
+                output.accept(BLANK_BOW_B.get());
+                output.accept(BLANK_BOW_C.get());
             }).build());
 
     public ArchExpSquared(FMLJavaModLoadingContext context)
