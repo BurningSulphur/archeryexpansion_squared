@@ -15,9 +15,15 @@
       "particles": false
     },
     {
-      "effect": "oreganized:stunning",
+      "effect": "minecraft:slowness",
       "lvl": 0,
-      "length": 20,
+      "length": 40,
+      "particles": false
+    },
+    {
+      "effect": "minecraft:weakness",
+      "lvl": 0,
+      "length": 40,
       "particles": false
     }
   ]
