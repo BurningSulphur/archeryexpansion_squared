@@ -98,18 +98,33 @@ public class ArchExpSquared
 
     }
     //attempt to make the bow have melee by  adding attributes, probably another way but this is close to what i know with kubejs and will hopefully avoid issues with archery expansion overrides
+    /* failed to get the attributes to apply :(
+    code remaining here incase anyone can fix it
     @SubscribeEvent
     public static void onItemModify(ItemAttributeModifierEvent event) {
         ItemStack stack = event.getItemStack();
         EquipmentSlot slot = event.getSlotType();
 
-        if (slot == EquipmentSlot.MAINHAND) {
-            if (stack.is(ArchExpSquared.SILVER_BOW.get())) {
-                event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("CB3F55D3-645C-4F38-A497-9C13A33DB5CF"), "Weapon modifier", 1.0, AttributeModifier.Operation.ADDITION));
-                event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3"), "Weapon modifier", 1.0, AttributeModifier.Operation.ADDITION));
-            }
+        if (slot == EquipmentSlot.MAINHAND && stack.getItem() == ArchExpSquared.SILVER_BOW.get()) {
+            // Unique UUIDs for each attribute
+            UUID attackDamageUUID = UUID.fromString("CB3F55D3-645C-4F38-A497-9C13A33DB5CF");
+            UUID attackSpeedUUID = UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3");
+
+            // Add attack damage modifier
+            event.addModifier(
+                    Attributes.ATTACK_DAMAGE,
+                    new AttributeModifier(attackDamageUUID, "Weapon modifier", 6.0, AttributeModifier.Operation.ADDITION) // Adjust damage value as needed
+            );
+
+            // Add attack speed modifier
+            event.addModifier(
+                    Attributes.ATTACK_SPEED,
+                    new AttributeModifier(attackSpeedUUID, "Weapon modifier", -2.0, AttributeModifier.Operation.ADDITION) // Adjust speed value as needed
+            );
         }
     }
+
+     */
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
