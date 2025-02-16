@@ -2,12 +2,9 @@ package  com.burningsulphur.archexpsquared;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.*;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,7 +38,6 @@ public class ArchExpSquared
 
 
     //bow items
-
     public static final RegistryObject<Item> LEAD_BOW = ITEMS.register("lead_bow",
             () -> new BowItem(new Item.Properties().durability(500)));
     public static final RegistryObject<Item> SILVER_BOW = ITEMS.register("silver_bow",
