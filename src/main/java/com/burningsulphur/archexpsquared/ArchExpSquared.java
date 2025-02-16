@@ -2,14 +2,18 @@ package  com.burningsulphur.archexpsquared;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.ItemAttributeModifierEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +24,13 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+import net.minecraft.world.entity.ai.attributes.*;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.UUID;
+import java.util.function.Function;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ArchExpSquared.MOD_ID)
@@ -35,7 +46,6 @@ public class ArchExpSquared
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
-
 
     //bow items
     public static final RegistryObject<Item> LEAD_BOW = ITEMS.register("lead_bow",
@@ -56,7 +66,7 @@ public class ArchExpSquared
     public static final RegistryObject<Item> BLANK_BOW_C = ITEMS.register("blank_bow_c",
             () -> new BowItem(new Item.Properties().durability(500)));
 
-    // adding the propeties to the bow
+    // adding the propeties to the bow for animation
 
     public class ModItemProperties {
         public static void addCustomItemProperties() { // put bows here
@@ -85,8 +95,21 @@ public class ArchExpSquared
                 return p_174632_ != null && p_174632_.isUsingItem() && p_174632_.getUseItem() == p_174630_ ? 1.0F : 0.0F;
             });
         }
-    }
 
+    }
+    //attempt to make the bow have melee by  adding attributes, probably another way but this is close to what i know with kubejs and will hopefully avoid issues with archery expansion overrides
+    @SubscribeEvent
+    public static void onItemModify(ItemAttributeModifierEvent event) {
+        ItemStack stack = event.getItemStack();
+        EquipmentSlot slot = event.getSlotType();
+
+        if (slot == EquipmentSlot.MAINHAND) {
+            if (stack.is(ArchExpSquared.SILVER_BOW.get())) {
+                event.addModifier(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("CB3F55D3-645C-4F38-A497-9C13A33DB5CF"), "Weapon modifier", 1.0, AttributeModifier.Operation.ADDITION));
+                event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(UUID.fromString("FA233E1C-4180-4865-B01B-BCCE9785ACA3"), "Weapon modifier", 1.0, AttributeModifier.Operation.ADDITION));
+            }
+        }
+    }
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
