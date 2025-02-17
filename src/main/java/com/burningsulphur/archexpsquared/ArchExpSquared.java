@@ -49,15 +49,15 @@ public class ArchExpSquared
 
     //bow items
     public static final RegistryObject<Item> LEAD_BOW = ITEMS.register("lead_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+            () -> new BowItem(new Item.Properties().durability(168)));
     public static final RegistryObject<Item> SILVER_BOW = ITEMS.register("silver_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+            () -> new BowItem(new Item.Properties().durability(157)));
     public static final RegistryObject<Item> ELECTRUM_BOW = ITEMS.register("electrum_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+            () -> new BowItem(new Item.Properties().durability(1561)));
     public static final RegistryObject<Item> NECROMIUM_BOW = ITEMS.register("necromium_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+            () -> new BowItem(new Item.Properties().durability(2031)));
     public static final RegistryObject<Item> ROSE_GOLD_BOW = ITEMS.register("rose_gold_bow",
-            () -> new BowItem(new Item.Properties().durability(500)));
+            () -> new BowItem(new Item.Properties().durability(200)));
 
     public static final RegistryObject<Item> BLANK_BOW_A = ITEMS.register("blank_bow_a",
             () -> new BowItem(new Item.Properties().durability(500)));
