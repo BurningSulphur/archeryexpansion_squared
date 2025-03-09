@@ -2,6 +2,7 @@ package  com.burningsulphur.archexpsquared;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -127,8 +128,9 @@ public class ArchExpSquared
      */
 
     // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .withTabsBefore(CreativeModeTabs.COMBAT)
+    public static final RegistryObject<CreativeModeTab> ARCHEXPSQUARED_TAB = CREATIVE_MODE_TABS.register("archexpsquared_tab", () -> CreativeModeTab.builder()
+            .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
+            .title(Component.translatable("item_group." + MOD_ID + ".archexpsquared_tab"))
             .icon(() -> SILVER_BOW.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(LEAD_BOW.get());
@@ -141,6 +143,19 @@ public class ArchExpSquared
                 output.accept(BLANK_BOW_C.get());
             }).build());
 
+    /* causes a crash for some reason?
+    @SubscribeEvent
+    public void buildContents(BuildCreativeModeTabContentsEvent event) {
+        // Add to ingredients tab
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(LEAD_BOW.get());
+            event.accept(SILVER_BOW.get()); // Takes in an ItemLike, assumes block has registered item
+            event.accept(ELECTRUM_BOW.get());
+            event.accept(NECROMIUM_BOW.get());
+            event.accept(ROSE_GOLD_BOW.get());
+        }
+    }
+*/
     public ArchExpSquared(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
