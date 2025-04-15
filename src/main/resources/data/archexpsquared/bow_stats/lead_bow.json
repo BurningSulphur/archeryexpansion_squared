@@ -19,7 +19,7 @@
       "effect": "oreganized:stunning",
       "fallback": "minecraft:weakness",
       "lvl": 2,
-      "length": 20,
+      "length": 40,
       "particles": false
     }
   ]
