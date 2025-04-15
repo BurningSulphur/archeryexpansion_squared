@@ -7,6 +7,7 @@
   "break_resist": 0.99,
   "break_chance": 0.025,
   "recoil": 0.2,
+  "has_description": true,
   "on_fire_effects": [
     {
       "effect": "archeryexp:quickdraw",

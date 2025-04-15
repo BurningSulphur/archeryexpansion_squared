@@ -7,6 +7,7 @@
   "break_resist": 0.25,
   "break_chance": 0.2,
   "recoil": 0.3,
+  "has_description": true,
   "on_fire_effects": [
     {
       "effect": "archeryexp:quickdraw",
@@ -15,15 +16,10 @@
       "particles": false
     },
     {
-      "effect": "minecraft:slowness",
-      "lvl": 0,
-      "length": 40,
-      "particles": false
-    },
-    {
-      "effect": "minecraft:weakness",
-      "lvl": 0,
-      "length": 40,
+      "effect": "oreganized:stunning",
+      "fallback": "minecraft:weakness",
+      "lvl": 2,
+      "length": 20,
       "particles": false
     }
   ]
